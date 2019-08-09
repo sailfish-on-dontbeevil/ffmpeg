@@ -70,6 +70,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
+%license COPYING.LGPLv2.1
+%dir %{_datadir}/ffmpeg
 %{_datadir}/ffmpeg/*.ffpreset
 %{_datadir}/ffmpeg/ffprobe.xsd
 %{_libdir}/libavcodec.so.*

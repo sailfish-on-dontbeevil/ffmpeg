@@ -11,6 +11,7 @@ License:        LGPLv2+
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(speex)
 BuildRequires:  pkgconfig(zlib)
+BuildRequires:  pkgconfig(libv4l2)
 Conflicts:      libav
 %ifarch i486 x86_64
 BuildRequires:  yasm
@@ -48,6 +49,7 @@ sed -i 's/sed -E/sed -r/g' ./configure
   --disable-static --disable-doc --enable-muxers --enable-demuxers --enable-protocols \
   --disable-indevs --disable-outdevs --disable-bsfs --enable-network --disable-hwaccels \
   --enable-libpulse --enable-libspeex  --disable-encoders --disable-decoders \
+  --enable-libv4l2 \
   --enable-encoder="$(perl -pe 's{^(\w*).*}{$1,}gs' <%_sourcedir/enable_encoders)" \
   --enable-decoder="$(perl -pe 's{^(\w*).*}{$1,}gs' <%_sourcedir/enable_decoders)" \
 

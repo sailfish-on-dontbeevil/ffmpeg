@@ -17,6 +17,7 @@ BuildRequires:  pkgconfig(theora)
 BuildRequires:  pkgconfig(vorbis)
 BuildRequires:  pkgconfig(vpx)
 BuildRequires:  pkgconfig(zlib)
+BuildRequires:  pkgconfig(libv4l2)
 Conflicts:      libav
 %ifarch %{ix86} x86_64
 BuildRequires:  yasm
@@ -52,9 +53,10 @@ sed -i 's/sed -E/sed -r/g' ./configure
 
 ./configure --prefix=/usr --libdir=%{_libdir} --disable-debug --enable-shared --enable-pic \
   --disable-static --disable-doc --enable-muxers --enable-demuxers --enable-protocols \
-  --disable-indevs --disable-outdevs --disable-bsfs --enable-network --disable-hwaccels \
+  --disable-outdevs --disable-bsfs --enable-network --disable-hwaccels \
   --enable-libopenjpeg --enable-libopus --enable-libpulse --enable-libspeex --enable-libtheora \
   --enable-libvorbis --enable-libvpx --enable-libwebp --disable-encoders --disable-decoders \
+  --enable-libv4l2 --enable-indev=v4l2\
   --enable-encoder="$(perl -pe 's{^(\w*).*}{$1,}gs' <%{SOURCE2})" \
   --enable-decoder="$(perl -pe 's{^(\w*).*}{$1,}gs' <%{SOURCE1})" \
 

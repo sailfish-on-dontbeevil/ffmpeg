@@ -47,9 +47,10 @@ sed -i 's/sed -E/sed -r/g' ./configure
 
 ./configure --prefix=/usr --libdir=%{_libdir} --disable-debug --enable-shared --enable-pic \
   --disable-static --disable-doc --enable-muxers --enable-demuxers --enable-protocols \
-  --disable-indevs --disable-outdevs --disable-bsfs --enable-network --disable-hwaccels \
+  --disable-outdevs --disable-bsfs --enable-network --disable-hwaccels \
   --enable-libpulse --enable-libspeex  --disable-encoders --disable-decoders \
   --enable-libv4l2 \
+  --enable-indev=v4l2\
   --enable-encoder="$(perl -pe 's{^(\w*).*}{$1,}gs' <%_sourcedir/enable_encoders)" \
   --enable-decoder="$(perl -pe 's{^(\w*).*}{$1,}gs' <%_sourcedir/enable_decoders)" \
 

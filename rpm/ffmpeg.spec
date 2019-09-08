@@ -11,7 +11,7 @@ License:        LGPLv2+
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(speex)
 BuildRequires:  pkgconfig(zlib)
-BuildRequires:  pkgconfig(libv4l2)
+BuildRequires:  pkgconfig(libv4l)
 Conflicts:      libav
 %ifarch i486 x86_64
 BuildRequires:  yasm

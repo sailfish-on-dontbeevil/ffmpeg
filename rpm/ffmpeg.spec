@@ -1,5 +1,5 @@
 Name:           ffmpeg
-Version:        4.1.1
+Version:        4.2.2
 Release:        1
 Summary:        FFmpeg video encoding and decoding library
 Group:          Productivity/Multimedia/Video/Editors and Convertors
@@ -8,8 +8,13 @@ Source:         http://ffmpeg.org/releases/%{name}-%{version}.tar.bz2
 Source1:        enable_decoders
 Source2:        enable_encoders
 License:        LGPLv2+
+BuildRequires:  pkgconfig(libopenjp2)
 BuildRequires:  pkgconfig(libpulse)
+BuildRequires:  pkgconfig(libwebp)
 BuildRequires:  pkgconfig(speex)
+BuildRequires:  pkgconfig(theora)
+BuildRequires:  pkgconfig(vorbis)
+BuildRequires:  pkgconfig(vpx)
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(libv4l2)
 Conflicts:      libav
@@ -48,7 +53,8 @@ sed -i 's/sed -E/sed -r/g' ./configure
 ./configure --prefix=/usr --libdir=%{_libdir} --disable-debug --enable-shared --enable-pic \
   --disable-static --disable-doc --enable-muxers --enable-demuxers --enable-protocols \
   --disable-outdevs --disable-bsfs --enable-network --disable-hwaccels \
-  --enable-libpulse --enable-libspeex  --disable-encoders --disable-decoders \
+  --enable-libopenjpeg --enable-libpulse --enable-libspeex --enable-libtheora \
+  --enable-libvorbis --enable-libvpx --enable-libwebp --disable-encoders --disable-decoders \
   --enable-libv4l2 \
   --enable-indev=v4l2\
   --enable-encoder="$(perl -pe 's{^(\w*).*}{$1,}gs' <%_sourcedir/enable_encoders)" \
@@ -163,6 +169,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libavutil/file.h
 %{_includedir}/libavutil/frame.h
 %{_includedir}/libavutil/hash.h
+%{_includedir}/libavutil/hdr_dynamic_metadata.h
 %{_includedir}/libavutil/hmac.h
 %{_includedir}/libavutil/hwcontext.h
 %{_includedir}/libavutil/hwcontext_cuda.h
@@ -208,6 +215,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libavutil/timestamp.h
 %{_includedir}/libavutil/tree.h
 %{_includedir}/libavutil/twofish.h
+%{_includedir}/libavutil/tx.h
 %{_includedir}/libavutil/version.h
 %{_includedir}/libavutil/xtea.h
 %dir %{_includedir}/libswresample

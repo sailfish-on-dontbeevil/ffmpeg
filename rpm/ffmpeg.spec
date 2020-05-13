@@ -169,7 +169,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libavutil/file.h
 %{_includedir}/libavutil/frame.h
 %{_includedir}/libavutil/hash.h
-%{_includedir}/libavutil/hdr_dynamic_metadata.h
 %{_includedir}/libavutil/hmac.h
 %{_includedir}/libavutil/hwcontext.h
 %{_includedir}/libavutil/hwcontext_cuda.h
@@ -215,7 +214,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libavutil/timestamp.h
 %{_includedir}/libavutil/tree.h
 %{_includedir}/libavutil/twofish.h
-%{_includedir}/libavutil/tx.h
 %{_includedir}/libavutil/version.h
 %{_includedir}/libavutil/xtea.h
 %dir %{_includedir}/libswresample
